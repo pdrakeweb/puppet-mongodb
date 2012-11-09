@@ -14,7 +14,7 @@
 # Sample Usage:
 #  include mongodb
 #
-class mongodb {
+class mongodb ($version = 'installed') {
   include mongodb::params
 
   if ! defined(Package["python-software-properties"]) {
@@ -45,7 +45,7 @@ class mongodb {
   }
 
   package { $mongodb::params::package:
-    ensure => installed,
+    ensure => $version,
     require => Exec["update-apt"],
   }
 
