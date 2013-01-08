@@ -1,0 +1,60 @@
+# Username to access the mongo server e.g. dbuser
+# Unnecessary if authentication is off
+<%
+if backup_user != 'false' %>
+DBUSERNAME="<%= backup_user %>"
+<% end %>
+
+# Username to access the mongo server e.g. password
+# Unnecessary if authentication is off
+<%
+if backup_pass != 'false' %>
+DBPASSWORD="<%= backup_pass %>"
+<% end %>
+
+# Host name (or IP address) of mongo server e.g localhost
+DBHOST=<%= backup_host %>
+
+# Port that mongo is listening on
+DBPORT=27017
+
+# Backup directory location e.g /backups
+BACKUPDIR="<%= backup_dest %>"
+
+# Mail setup
+# What would you like to be mailed to you?
+# - log   : send only log file
+# - files : send log file and sql files as attachments (see docs)
+# - stdout : will simply output the log to the screen if run manually.
+# - quiet : Only send logs if an error occurs to the MAILADDR.
+MAILCONTENT="log"
+
+# Set the maximum allowed email size in k. (4000 = approx 5MB email [see docs])
+MAXATTSIZE="4000"
+
+# Email Address to send mail to? (user@domain.com)
+MAILADDR="<%= backup_email %>"
+
+# Which day do you want weekly backups? (1 to 7 where 1 is Monday)
+DOWEEKLY=6
+
+# Choose Compression type. (gzip or bzip2)
+COMP="gzip"
+
+# Choose if the uncompressed folder should be deleted after compression has completed
+CLEANUP="yes"
+
+# Additionally keep a copy of the most recent backup in a seperate directory.
+LATEST="yes"
+
+# Make Hardlink not a copy
+LATESTLINK="yes"
+
+# Use oplog for point-in-time snapshotting.
+OPLOG="no"
+
+# Enable and use journaling.
+JOURNAL="no"
+
+# Choose other Server if is Replica-Set Master
+REPLICAONSLAVE="yes"
