@@ -64,11 +64,4 @@ class mongodb ($version = 'installed') {
     }
   }
 
-  file { "/usr/local/bin/automongobackup.sh":
-    owner   => root,
-    group   => root,
-    mode    => 755,
-    source  => "puppet:///modules/mongodb/automongobackup.sh",
-  }
-
 }
